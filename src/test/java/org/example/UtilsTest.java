@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.* ;
 
 public class UtilsTest {
@@ -35,6 +37,20 @@ public class UtilsTest {
         //Then / Assert
         assertEquals(2, result, "Testet gick igenom med resultatet blev fel");
 
+    }
+
+    @Test
+    public void reverse_withInteger_shouldReverseList() {
+
+        //Given
+        List<Integer> numbers = List.of(1, 2, 3);
+
+        //WHen
+        List<Integer> reversedNumbers = Utils.reverse(numbers);
+
+        //Then
+        assertIterableEquals(List.of(3, 2, 1), reversedNumbers, "Listan gick igenom");
+        // assertSame(List.of(3, 2, 1), reversedNumbers); funkar ej, inte samma på samam plats, bara samma innehåll
     }
 
 }
